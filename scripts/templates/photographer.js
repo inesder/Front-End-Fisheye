@@ -1,5 +1,5 @@
 function photographerTemplate(data) {
-    const { name, city, country, tagline, price, portrait } = data;
+    const { name, city, country, tagline, price, id, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -15,8 +15,12 @@ function photographerTemplate(data) {
         const cardHeader = document.createElement( 'div' );
         cardHeader.appendChild(imgElement);
         cardHeader.appendChild(nameElement);
-        cardHeader.setAttribute("aria-label", name);
         cardHeader.classList.add("card-header");
+
+        const cardHeaderLink = document.createElement('a');
+        cardHeaderLink.setAttribute("aria-label", name);
+        cardHeaderLink.setAttribute("href", "photographer.html?id=${data.id}")
+        cardHeaderLink.appendChild(cardHeader);
 
         const locationElement = document.createElement('p');
         locationElement.textContent = city + ", " + country;
@@ -37,10 +41,14 @@ function photographerTemplate(data) {
         cardContent.classList.add("card-content");
 
 
-        article.appendChild(cardHeader);
+        article.appendChild(cardHeaderLink);
         article.appendChild(cardContent);
-        
+
+        cardHeaderLink.onclick = function() {
+            console.log(data.id);
+          };
+
         return (article);
     }
-    return { name, city, country, price, picture, getUserCardDOM }
+    return { name, city, country, price, picture, id, getUserCardDOM }
 }
