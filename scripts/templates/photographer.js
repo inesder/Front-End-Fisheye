@@ -19,7 +19,7 @@ function photographerTemplate(data) {
 
         const cardHeaderLink = document.createElement('a');
         cardHeaderLink.setAttribute("aria-label", name);
-        cardHeaderLink.setAttribute("href", "photographer.html?id=${data.id}")
+        cardHeaderLink.setAttribute("href", `photographer.html?id=${data.id}`)
         cardHeaderLink.appendChild(cardHeader);
 
         const locationElement = document.createElement('p');
