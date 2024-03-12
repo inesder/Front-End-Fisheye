@@ -44,11 +44,18 @@ function photographerTemplate(data) {
         article.appendChild(cardHeaderLink);
         article.appendChild(cardContent);
 
-        cardHeaderLink.onclick = function() {
+       /* cardHeaderLink.onclick = function() {
             console.log(data.id);
-          };
+          };*/
 
         return (article);
     }
     return { name, city, country, price, picture, id, getUserCardDOM }
 }
+
+
+
+  
+
+
+

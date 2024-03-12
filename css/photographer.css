@@ -1,3 +1,5 @@
+
+
 #contact_modal {
     display: none;
 }
@@ -6,6 +8,10 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    padding: 0 50px;
 }
 
 .contact_button {
@@ -19,6 +25,17 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    justify-self: center;
+    
+}
+
+.photograph-header img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    justify-self: end;
+    
 }
 
 .modal {
@@ -74,3 +91,32 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+.photograph-header .card-header {
+    flex-direction: row-reverse;
+}
+
+.photograph-header .card-content {
+    text-align: left;
+}
+
+.photograph-header h1 {
+    color:#D3573C;
+    font-size: 64px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.photograph-header .location {
+    font-size: 24px;
+}
+
+.photograph-header .tagline {
+    font-size: 18px;
+    color: #525252;
+}
+
+.profile {
+    grid-area: 1;
+}
+
