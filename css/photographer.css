@@ -11,7 +11,7 @@
     align-items: center;
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
-    padding: 0 50px;
+    padding: 40px 50px;
 }
 
 .contact_button {
@@ -104,7 +104,7 @@ form input {
     color:#D3573C;
     font-size: 64px;
     font-weight: 400;
-    margin-bottom: 10px;
+    margin: 10px auto;
 }
 
 .photograph-header .location {
