@@ -153,6 +153,7 @@ max-width: 350px;
 .gallery-title {
     font-size: 24px;
     color: #901C1C;
+    margin-top: 10px;
 }
 
 .gallery-likes {
@@ -160,6 +161,7 @@ max-width: 350px;
     color: #901C1C;
     font-weight: 500px;
     justify-self: end;
+    margin-top: 10px;
 }
 
 .media-informations {
