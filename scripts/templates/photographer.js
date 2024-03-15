@@ -50,7 +50,7 @@ function photographerTemplate(data) {
 
         return (article);
     }
-    return { name, city, country, price, picture, id, getUserCardDOM }
+    return { getUserCardDOM }
 }
 
 

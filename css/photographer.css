@@ -147,6 +147,7 @@ max-width: 350px;
     width: 350px;
     height: 300px;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 .gallery-title {
@@ -163,7 +164,7 @@ max-width: 350px;
 
 .media-informations {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
       
 }
@@ -175,3 +176,20 @@ max-width: 350px;
 .media-section > .media-card:nth-child(3) {
     justify-self: end;
 }
+
+.insert {
+    background-color: #DB8876;
+    width: 370px;
+    height: 80px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0 30px;
+}
+

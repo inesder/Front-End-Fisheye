@@ -1,5 +1,5 @@
 function headerTemplate(data) {
-    const { name, city, country, tagline, id, portrait } = data;
+    const { name, city, country, tagline, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -33,9 +33,8 @@ function headerTemplate(data) {
         photographerSection.appendChild(profile);
         photographerSection.appendChild(imgElement);
         
-
-
         return (photographerSection);
+        
     }
-    return { name, city, country, picture, id, getUserHeader }
+    return { getUserHeader }
 }

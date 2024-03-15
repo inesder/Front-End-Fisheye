@@ -21,6 +21,13 @@ import { mediasTemplate } from '../templates/medias.js';
         
     }
 
+    async function displayInsert(photographer, medias) {
+        // Utilisez insertTemplate et passez-lui les données nécessaires
+        const insertModel = insertTemplate(photographer);
+        insertModel.getInsert();
+    }
+
+
 
 async function init() {
     let params = new URL(document.location).searchParams;
@@ -33,8 +40,12 @@ async function init() {
         displayData(photographer); // Affiche les infos du photographe spécifié
         // Filtre les médias pour ce photographe spécifique
         const medias = data.media.filter(m => m.photographerId === photographerId);
+        const totalLikes = medias.reduce((acc, media) => acc + media.likes, 0);
         
         displayMedia(medias, photographer.name); // Ici, medias est un tableau
+
+        displayInsert({ price: photographer.price, totalLikes: totalLikes }); // Ajouté pour afficher l'encart
+
     } else {
         console.error("Photographe non trouvé.");
     }
