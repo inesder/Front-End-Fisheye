@@ -30,10 +30,14 @@ export function mediasTemplate(data, name) {
         mediaLikes.textContent = likes;
         mediaLikes.classList.add("gallery-likes");
 
+        const likeIcon = document.createElement("img");
+        likeIcon.setAttribute('src',`assets/icons/heart-solid.svg`)
+
         const mediaInformations = document.createElement("div");
         mediaInformations.classList.add("media-informations");
         mediaInformations.appendChild(mediaTitle);
         mediaInformations.appendChild(mediaLikes);
+        mediaInformations.appendChild(likeIcon)
 
         mediaCard.appendChild(mediaContent);
         mediaCard.appendChild(mediaInformations);

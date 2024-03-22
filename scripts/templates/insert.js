@@ -8,13 +8,18 @@ function insertTemplate(data) {
         const insertElement = document.createElement('div');
         insertElement.classList.add("insert");
 
-        const priceElement = document.createElement('p');
-        priceElement.textContent= price + "€/jour";
-        insertElement.appendChild(priceElement);
-
         const likesElement = document.createElement('p');
         likesElement.textContent = `${totalLikes}`;
         insertElement.appendChild(likesElement);
+
+        const likeIcon = document.createElement('img');
+        likeIcon.setAttribute('src', 'assets/icons/heart-solid-black.svg')
+        insertElement.appendChild(likeIcon);
+
+        const priceElement = document.createElement('p');
+        priceElement.textContent= price + "€/jour";
+        priceElement.classList.add('insert-price');
+        insertElement.appendChild(priceElement);
 
         mainElement.appendChild(insertElement);
         

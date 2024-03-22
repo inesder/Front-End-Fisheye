@@ -180,16 +180,23 @@ max-width: 350px;
 .gallery-likes {
     font-size: 24px;
     color: #901C1C;
-    font-weight: 500px;
+    font-weight: 500;
     justify-self: end;
     margin-top: 10px;
 }
 
+.media-informations img {
+    width: 17px;
+    height: 19px;
+    justify-self: end;
+    margin-top:10px;
+    margin-bottom: 24px;
+}
+
 .media-informations {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 0.5fr 0.2fr;
     align-items: center;
-      
 }
 
 .media-section > .media-card:nth-child(2) {
@@ -208,11 +215,22 @@ max-width: 350px;
     position: fixed;
     bottom: 0;
     right: 15px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: 0.4fr 1fr 1fr;
     font-size: 24px;
     font-weight: 500;
     padding: 0 30px;
+    align-items: center;
+}
+
+.insert-price {
+    justify-self: end;
+}
+
+
+.insert img {
+    width: 17px;
+    height: 18px;
+
 }
 
