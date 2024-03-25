@@ -82,6 +82,11 @@
 
 }
 
+.modal header button {
+    background: none;
+    border: none;
+}
+
 form {
     display: flex;
     width: 100%;
