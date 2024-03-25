@@ -16,6 +16,7 @@ function photographerTemplate(data) {
         cardHeader.appendChild(imgElement);
         cardHeader.appendChild(nameElement);
         cardHeader.classList.add("card-header");
+        cardHeader.setAttribute("aria-label", name);
 
         const cardHeaderLink = document.createElement('a');
         cardHeaderLink.setAttribute("aria-label", name);

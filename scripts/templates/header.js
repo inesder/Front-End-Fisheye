@@ -7,7 +7,8 @@ function headerTemplate(data) {
         const photographerSection = document.querySelector(".photograph-header");
 
         const imgElement = document.createElement( 'img' );
-        imgElement.setAttribute("src", picture)
+        imgElement.setAttribute("src", picture);
+        imgElement.setAttribute("alt", name )
 
         const nameElement = document.createElement( 'h1' );
         nameElement.textContent = name;
