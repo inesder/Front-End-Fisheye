@@ -19,8 +19,14 @@ export function mediasTemplate(data, name) {
         const mediaCard = document.createElement("article");
         mediaCard.classList.add("media-card");
 
-        const mediaContent = media.render();
+        const imgLink = document.createElement("a");
+        imgLink.setAttribute('href', '#');
+        imgLink.setAttribute('aria-label', title)
 
+        const mediaContent = media.render();
+        imgLink.appendChild(mediaContent);
+
+        mediaCard.appendChild(imgLink);
 
         const mediaTitle = document.createElement("p");
         mediaTitle.textContent = title;
@@ -37,10 +43,11 @@ export function mediasTemplate(data, name) {
         mediaInformations.classList.add("media-informations");
         mediaInformations.appendChild(mediaTitle);
         mediaInformations.appendChild(mediaLikes);
-        mediaInformations.appendChild(likeIcon)
-
-        mediaCard.appendChild(mediaContent);
+        mediaInformations.appendChild(likeIcon);
+        
         mediaCard.appendChild(mediaInformations);
+        
+    
 
         // grid
         const numberOfColumns = 3;
