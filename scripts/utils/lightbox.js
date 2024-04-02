@@ -2,7 +2,7 @@ import { MediaFactory } from '../factories/photographer.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const closeBtn = document.getElementById('Close dialog');
+    const closeBtn = document.getElementById('closeLightboxBtn');
     if (closeBtn) {
         closeBtn.addEventListener('click', closeLightbox);
     }
