@@ -1,5 +1,7 @@
 import { getPhotographers } from '../api/api.js';
 import { mediasTemplate } from '../templates/medias.js';
+ 
+
 
 
     async function displayData(photographer) {
@@ -12,8 +14,8 @@ import { mediasTemplate } from '../templates/medias.js';
     async function displayMedia(medias, name){
         const mediaSection = document.querySelector(".media-section");
 
-        medias.forEach((media) =>{
-            const mediaModel = mediasTemplate(media, name);
+        medias.forEach((media, index) =>{
+            const mediaModel = mediasTemplate(media, name, index, medias);
             const mediaCard = mediaModel.getMediaCard();
             mediaSection.appendChild(mediaCard);
 
@@ -34,6 +36,7 @@ async function init() {
     let photographerId = parseInt(params.get("id")); 
     
     const data = await getPhotographers(); // retourne à la fois les photographes et les médias
+    
     const photographer = data.photographers.find(p => p.id === photographerId);
 
     if (photographer) {

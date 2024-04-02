@@ -14,5 +14,6 @@ export class Image{
         imgElement.alt = this.title;
         imgElement.className = "gallery-img";
         return imgElement;
+        
     }
 }

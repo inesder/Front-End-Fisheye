@@ -1,6 +1,8 @@
 import { MediaFactory } from '../factories/photographer.js';
+import { displayLightbox } from '../utils/lightbox.js';
 
-export function mediasTemplate(data, name) {
+
+export function mediasTemplate(data, name, index, medias) {
     const { photographerId, title, image, likes, date, price } = data;
     
     
@@ -21,7 +23,15 @@ export function mediasTemplate(data, name) {
 
         const imgLink = document.createElement("a");
         imgLink.setAttribute('href', '#');
-        imgLink.setAttribute('aria-label', title)
+        imgLink.setAttribute('aria-label', title);
+
+        imgLink.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            displayLightbox(index, medias); // Appelle displayLightbox avec les données du média
+        });
+
+        
+
 
         const mediaContent = media.render();
         imgLink.appendChild(mediaContent);
