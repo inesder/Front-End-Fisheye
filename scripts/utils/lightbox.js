@@ -2,7 +2,7 @@ import { MediaFactory } from '../factories/photographer.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const closeBtn = document.getElementById('closeLightboxBtn');
+    const closeBtn = document.getElementById('Close dialog');
     if (closeBtn) {
         closeBtn.addEventListener('click', closeLightbox);
     }
@@ -45,16 +45,18 @@ export function displayLightbox(index, medias) {
     imageTitle.textContent= (medias[index].title)
     contentContainer.appendChild(imageTitle);
 
-    const leftArrow_btn = document.createElement("button");
+    const leftArrow_btn = document.createElement("a");
     leftArrow_btn.classList.add("left-btn");
+    leftArrow_btn.setAttribute("aria-label", "Previous image");
 
     const leftArrow = document.createElement("img");
     leftArrow.setAttribute("src", "./assets/icons/chevron-left-solid.svg");
     leftArrow_btn.appendChild(leftArrow);
     contentContainer.appendChild(leftArrow_btn);
 
-    const rightArrow_btn = document.createElement("button");
+    const rightArrow_btn = document.createElement("a");
     rightArrow_btn.classList.add("right-btn");
+    rightArrow_btn.setAttribute("aria-label","Next image")
 
     const rightArrow = document.createElement("img");
     rightArrow.setAttribute("src", "./assets/icons/chevron-right-solid.svg");
