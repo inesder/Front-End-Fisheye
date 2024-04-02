@@ -41,6 +41,10 @@ export function displayLightbox(index, medias) {
     console.log(mediaElement);
     contentContainer.appendChild(mediaElement);
 
+    const imageTitle = document.createElement("p");
+    imageTitle.textContent= (medias[index].title)
+    contentContainer.appendChild(imageTitle);
+
     const leftArrow_btn = document.createElement("button");
     leftArrow_btn.classList.add("left-btn");
 
@@ -56,6 +60,9 @@ export function displayLightbox(index, medias) {
     rightArrow.setAttribute("src", "./assets/icons/chevron-right-solid.svg");
     rightArrow_btn.appendChild(rightArrow);
     contentContainer.appendChild(rightArrow_btn);
+
+    
+    
 
     // Configuration de la navigation
     setupNavigation(
