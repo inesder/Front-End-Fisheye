@@ -196,6 +196,13 @@ max-width: 350px;
     justify-self: end;
     margin-top:10px;
     margin-bottom: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.media-informations img.clicked {
+
+    transform: scale(1.5);
 }
 
 .media-informations {

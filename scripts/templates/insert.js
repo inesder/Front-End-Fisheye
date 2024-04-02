@@ -9,6 +9,7 @@ function insertTemplate(data) {
         insertElement.classList.add("insert");
 
         const likesElement = document.createElement('p');
+        likesElement.id = "totalLikesElement"
         likesElement.textContent = `${totalLikes}`;
         insertElement.appendChild(likesElement);
 

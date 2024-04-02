@@ -4,17 +4,16 @@ import { displayLightbox } from '../utils/lightbox.js';
 
 export function mediasTemplate(data, name, index, medias) {
     const { photographerId, title, image, likes, date, price } = data;
-    
-    
+
+
     if (data.image) {
         data.image = `assets/medias/${name}/${data.image}`;
     } else if (data.video) {
         data.video = `assets/medias/${name}/${data.video}`;
     }
 
-     // Utilisez la MediaFactory pour créer le média
-     const media = new MediaFactory(data);
-
+    // Utilisez la MediaFactory pour créer le média
+    const media = new MediaFactory(data);
 
     function getMediaCard() {
 
@@ -25,13 +24,10 @@ export function mediasTemplate(data, name, index, medias) {
         imgLink.setAttribute('href', '#');
         imgLink.setAttribute('aria-label', title);
 
-        imgLink.addEventListener('click', function(event) {
-            event.preventDefault(); 
+        imgLink.addEventListener('click', function (event) {
+            event.preventDefault();
             displayLightbox(index, medias); // Appelle displayLightbox avec les données du média
         });
-
-        
-
 
         const mediaContent = media.render();
         imgLink.appendChild(mediaContent);
@@ -47,17 +43,48 @@ export function mediasTemplate(data, name, index, medias) {
         mediaLikes.classList.add("gallery-likes");
 
         const likeIcon = document.createElement("img");
-        likeIcon.setAttribute('src',`assets/icons/heart-solid.svg`)
+        likeIcon.setAttribute('src', `assets/icons/heart-solid.svg`);
+        // Met à jour le total des likes affiché dans l'insert
+        function updateTotalLikes(add) {
+            const totalLikesElement = document.getElementById('totalLikesElement');
+            if (totalLikesElement) {
+                let currentTotalLikes = parseInt(totalLikesElement.textContent);
+                currentTotalLikes += add ? 1 : -1;
+                totalLikesElement.textContent = `${currentTotalLikes}`;
+            }
+        }
+        likeIcon.addEventListener('click', function () {
+            // Inverse l'état de "like"
+            data.isLiked = !data.isLiked;
+
+            // Met à jour le nombre de likes
+            if (data.isLiked) {
+                data.likes += 1;
+                updateTotalLikes(true); // Ajoute 1 au total des likes
+            } else {
+                data.likes -= 1;
+                updateTotalLikes(false); // Retire 1 du total des likes
+            }
+
+            // Met à jour  le texte des likes
+            mediaLikes.textContent = data.likes;
+            // Applique l'effet de grossissement
+            likeIcon.classList.add('clicked');
+
+            // Supprime l'effet après 200ms
+            setTimeout(() => {
+                likeIcon.classList.remove('clicked');
+            }, 200);
+        });
+
 
         const mediaInformations = document.createElement("div");
         mediaInformations.classList.add("media-informations");
         mediaInformations.appendChild(mediaTitle);
         mediaInformations.appendChild(mediaLikes);
         mediaInformations.appendChild(likeIcon);
-        
+
         mediaCard.appendChild(mediaInformations);
-        
-    
 
         // grid
         const numberOfColumns = 3;

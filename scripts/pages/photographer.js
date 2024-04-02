@@ -45,9 +45,11 @@ async function init() {
         const medias = data.media.filter(m => m.photographerId === photographerId);
         const totalLikes = medias.reduce((acc, media) => acc + media.likes, 0);
         
+        displayInsert({ price: photographer.price, totalLikes: totalLikes }); // Ajouté pour afficher l'encart
+
         displayMedia(medias, photographer.name); // Ici, medias est un tableau
 
-        displayInsert({ price: photographer.price, totalLikes: totalLikes }); // Ajouté pour afficher l'encart
+        
 
     } else {
         console.error("Photographe non trouvé.");
