@@ -14,6 +14,13 @@ function closeLightbox(){
 
 }
 
+document.addEventListener('keydown', function(event){
+    if (event.key === "Escape"){
+        closeLightbox();
+    }
+    
+});
+
 
 
 function setupNavigation(onLeftClick, onRightClick) {
@@ -79,6 +86,18 @@ export function displayLightbox(index, medias) {
             displayLightbox(newIndex, medias);
         }
     );
+
+    document.addEventListener('keydown', function(event){
+        if (event.key === "ArrowLeft") {
+            // Assurez-vous que ces variables sont accessibles
+            let newIndex = (index - 1 + medias.length) % medias.length;
+            displayLightbox(newIndex, medias);
+        } else if (event.key === "ArrowRight") {
+            // Assurez-vous que ces variables sont accessibles
+            let newIndex = (index + 1) % medias.length;
+            displayLightbox(newIndex, medias);
+        }
+    })
 
 	modal.style.display = "block";
     modal.focus();
