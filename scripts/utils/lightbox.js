@@ -52,7 +52,7 @@ export function displayLightbox(index, medias) {
     imageTitle.textContent= (medias[index].title)
     contentContainer.appendChild(imageTitle);
 
-    const leftArrow_btn = document.createElement("a");
+    const leftArrow_btn = document.createElement("button");
     leftArrow_btn.classList.add("left-btn");
     leftArrow_btn.setAttribute("aria-label", "Previous image");
 
@@ -61,7 +61,7 @@ export function displayLightbox(index, medias) {
     leftArrow_btn.appendChild(leftArrow);
     contentContainer.appendChild(leftArrow_btn);
 
-    const rightArrow_btn = document.createElement("a");
+    const rightArrow_btn = document.createElement("button");
     rightArrow_btn.classList.add("right-btn");
     rightArrow_btn.setAttribute("aria-label","Next image")
 
