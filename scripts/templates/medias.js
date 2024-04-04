@@ -5,15 +5,8 @@ import { displayLightbox } from '../utils/lightbox.js';
 export function mediasTemplate(data, name, index, medias) {
     const { photographerId, title, image, likes, date, price } = data;
 
-
-    if (data.image) {
-        data.image = `assets/medias/${name}/${data.image}`;
-    } else if (data.video) {
-        data.video = `assets/medias/${name}/${data.video}`;
-    }
-
-    // Utilisez la MediaFactory pour créer le média
-    const media = new MediaFactory(data);
+    //  MediaFactory pour créer le média
+    const media = new MediaFactory(data, name);
 
     function getMediaCard() {
 
@@ -89,7 +82,7 @@ export function mediasTemplate(data, name, index, medias) {
         // grid
         const numberOfColumns = 3;
 
-        const gridItems = document.querySelectorAll('.media-section > .media-card');
+        const gridItems = document.querySelectorAll('.media-content > .media-card');
 
         gridItems.forEach((item, index) => {
             const column = (index % numberOfColumns) + 1;
@@ -104,3 +97,4 @@ export function mediasTemplate(data, name, index, medias) {
     }
     return { getMediaCard };
 }
+

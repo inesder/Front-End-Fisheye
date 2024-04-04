@@ -149,7 +149,7 @@ form textarea {
     grid-area: 1;
 }
 
-.media-section {
+.media-content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding-top: 100px;
@@ -211,11 +211,11 @@ max-width: 350px;
     align-items: center;
 }
 
-.media-section > .media-card:nth-child(2) {
+.media-content > .media-card:nth-child(2) {
     justify-self: center;
 }
 
-.media-section > .media-card:nth-child(3) {
+.media-content > .media-card:nth-child(3) {
     justify-self: end;
 }
 

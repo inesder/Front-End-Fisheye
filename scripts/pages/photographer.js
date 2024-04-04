@@ -12,7 +12,8 @@ import { mediasTemplate } from '../templates/medias.js';
     }
 
     async function displayMedia(medias, name){
-        const mediaSection = document.querySelector(".media-section");
+        const mediaSection = document.querySelector(".media-content");
+        mediaSection.innerHTML = ''; // Vide la section
 
         medias.forEach((media, index) =>{
             const mediaModel = mediasTemplate(media, name, index, medias);
@@ -27,6 +28,12 @@ import { mediasTemplate } from '../templates/medias.js';
         // Utilisez insertTemplate et passez-lui les données nécessaires
         const insertModel = insertTemplate(photographer);
         insertModel.getInsert();
+    }
+
+    async function displaySortMedias(medias, name, displayCallback) {
+        // Utilisez insertTemplate et passez-lui les données nécessaires
+        const sortMediasModel = sortMediasTemplate(medias, name, displayCallback);
+        sortMediasModel.getSortMedias();
     }
 
 
@@ -44,11 +51,9 @@ async function init() {
         // Filtre les médias pour ce photographe spécifique
         const medias = data.media.filter(m => m.photographerId === photographerId);
         const totalLikes = medias.reduce((acc, media) => acc + media.likes, 0);
-        
         displayInsert({ price: photographer.price, totalLikes: totalLikes }); // Ajouté pour afficher l'encart
-
         displayMedia(medias, photographer.name); // Ici, medias est un tableau
-
+        displaySortMedias(medias, photographer.name, displayMedia);
         
 
     } else {
