@@ -19,7 +19,7 @@ export function mediasTemplate(data, name, index, medias) {
 
         imgLink.addEventListener('click', function (event) {
             event.preventDefault();
-            displayLightbox(index, medias); // Appelle displayLightbox avec les données du média
+            displayLightbox(index, medias, name); // Appelle displayLightbox avec les données du média
         });
 
         const mediaContent = media.render();

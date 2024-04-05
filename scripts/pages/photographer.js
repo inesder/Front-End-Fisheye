@@ -50,6 +50,8 @@ async function init() {
         displayData(photographer); // Affiche les infos du photographe spécifié
         // Filtre les médias pour ce photographe spécifique
         const medias = data.media.filter(m => m.photographerId === photographerId);
+        // Tri par popularité avant d'afficher
+        medias.sort((a, b) => b.likes - a.likes);
         const totalLikes = medias.reduce((acc, media) => acc + media.likes, 0);
         displayInsert({ price: photographer.price, totalLikes: totalLikes }); // Ajouté pour afficher l'encart
         displayMedia(medias, photographer.name); // Ici, medias est un tableau

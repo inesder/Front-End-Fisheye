@@ -32,7 +32,7 @@ function setupNavigation(onLeftClick, onRightClick) {
 }
 
 
-export function displayLightbox(index, medias) {
+export function displayLightbox(index, medias, photographerName) {
     console.log("Index:", index, "Medias Length:", medias.length, "Current Media:", medias[index]);
 
     const mediaData = medias[index];
@@ -43,7 +43,7 @@ export function displayLightbox(index, medias) {
     // Effacer le contenu précédent
     contentContainer.innerHTML = '';
     
-    const media= new MediaFactory(mediaData);
+    const media= new MediaFactory(mediaData, photographerName);
     const mediaElement = media.render();
     console.log(mediaElement);
     contentContainer.appendChild(mediaElement);
@@ -78,12 +78,12 @@ export function displayLightbox(index, medias) {
         () => {
             // Action pour la flèche gauche : afficher le média précédent
             let newIndex = (index - 1 + medias.length) % medias.length;
-            displayLightbox(newIndex, medias);
+            displayLightbox(newIndex, medias, photographerName);
         },
         () => {
             // Action pour la flèche droite : afficher le média suivant
             let newIndex = (index + 1) % medias.length;
-            displayLightbox(newIndex, medias);
+            displayLightbox(newIndex, medias, photographerName);
         }
     );
 
@@ -91,11 +91,11 @@ export function displayLightbox(index, medias) {
         if (event.key === "ArrowLeft") {
             // Assurez-vous que ces variables sont accessibles
             let newIndex = (index - 1 + medias.length) % medias.length;
-            displayLightbox(newIndex, medias);
+            displayLightbox(newIndex, medias, photographerName);
         } else if (event.key === "ArrowRight") {
             // Assurez-vous que ces variables sont accessibles
             let newIndex = (index + 1) % medias.length;
-            displayLightbox(newIndex, medias);
+            displayLightbox(newIndex, medias, photographerName);
         }
     })
 
