@@ -425,6 +425,7 @@ cursor: pointer;
     position: absolute;
     top: 40%;
     left: 230px;
+    display: none;
 }
 
 .show {
