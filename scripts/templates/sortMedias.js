@@ -8,6 +8,7 @@ function sortMediasTemplate(medias, name, displayCallback) {
         // Libellé "Trier par"
         const sortLabel = document.createElement("p");
         sortLabel.textContent = "Trier par";
+        sortLabel.id = "sort-label"; 
         sortContainer.appendChild(sortLabel);   
 
         
@@ -18,12 +19,17 @@ function sortMediasTemplate(medias, name, displayCallback) {
         const selectedOption = document.createElement("button");
         selectedOption.textContent = "Popularité"; // "Popularité" est l'option par défaut
         selectedOption.classList.add("selected-option");
+        selectedOption.setAttribute("role", "button");
+        selectedOption.setAttribute("aria-haspopup", "listbox");
+        selectedOption.setAttribute("aria-expanded", "false");
         selectedOptionContainer.appendChild(selectedOption);
         sortContainer.appendChild(selectedOptionContainer);
 
         // Contenu du menu déroulant
         const dropdownContent = document.createElement("ul");
         dropdownContent.classList.add("dropdown-content");
+        dropdownContent.setAttribute("role", "listbox");
+        dropdownContent.setAttribute("aria-labelledby", "sort-label");
 
         //flèche menu déroulant
         const arrowDown = document.createElement("img");
@@ -40,8 +46,14 @@ function sortMediasTemplate(medias, name, displayCallback) {
         function updateDropdownOptions(currentSelection) {
             dropdownContent.innerHTML = ''; // Nettoie les options précédentes
             const options = ["Popularité", "Date", "Titre"].filter(option => option !== currentSelection);
-            options.forEach(option => {
+            options.forEach((option, index) => {
                 const listItem = document.createElement("li");
+                listItem.id = `option-${option.replace(/\s+/g, '-')}`;
+                listItem.setAttribute("role", "option");
+                listItem.setAttribute("aria-selected", "false");
+                if(index === 0) { // Le premier élément comme activedescendant par défaut
+                    dropdownContent.setAttribute("aria-activedescendant", listItem.id);
+                }
                 const link = document.createElement("a");
                 link.textContent = option;
                 link.href = "#";
@@ -50,6 +62,9 @@ function sortMediasTemplate(medias, name, displayCallback) {
                     selectedOption.textContent = option; // Mise à jour de l'option visible
                     sortMedias(option, medias, name, displayCallback);
                     dropdownContent.classList.remove("show"); // Ferme le menu après sélection
+                    selectedOption.setAttribute("aria-expanded", "false");
+                    dropdownContent.setAttribute("aria-activedescendant", listItem.id); // Met à jour l'activedescendant
+            listItem.setAttribute("aria-selected", "true"); // Marque l'option comme sélectionnée
                 });
                 listItem.appendChild(link);
                 dropdownContent.appendChild(listItem);
@@ -61,6 +76,8 @@ function sortMediasTemplate(medias, name, displayCallback) {
 
         // Afficher/Masquer le menu déroulant
         selectedOption.addEventListener('click', () => {
+            const isExpanded = selectedOption.getAttribute("aria-expanded") === "true";
+            selectedOption.setAttribute("aria-expanded", !isExpanded);
             updateDropdownOptions(selectedOption.textContent); // Met à jour les options à chaque ouverture
             dropdownContent.classList.toggle("show");
              // Bascule entre les icônes de flèche
@@ -79,7 +96,7 @@ function sortMediasTemplate(medias, name, displayCallback) {
         window.addEventListener('click', (event) => {
             if (!sortContainer.contains(event.target) && !selectedOption.contains(event.target)) {
                 dropdownContent.classList.remove("show");
-
+                selectedOption.setAttribute("aria-expanded", "false");
                 // Réinitialise les icônes à leur état par défaut
                 arrowUp.style.display = "none";
                  arrowDown.style.display = "block";
