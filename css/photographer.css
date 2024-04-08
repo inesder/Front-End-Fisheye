@@ -215,6 +215,7 @@ max-width: 350px;
     display: grid;
     grid-template-columns: 2fr 0.5fr 0.2fr;
     align-items: center;
+    height: 90px;
 }
 
 .media-content > .media-card:nth-child(3n+2) {
