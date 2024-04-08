@@ -78,23 +78,10 @@ export function mediasTemplate(data, name, index, medias) {
         mediaInformations.appendChild(likeIcon);
 
         mediaCard.appendChild(mediaInformations);
-
-        // grid
-        const numberOfColumns = 3;
-
-        const gridItems = document.querySelectorAll('.media-content > .media-card');
-
-        gridItems.forEach((item, index) => {
-            const column = (index % numberOfColumns) + 1;
-            if (column === 2) { // Pour la deuxième colonne
-                item.style.justifySelf = 'center';
-            } else if (column === 3) { // Pour la troisième colonne
-                item.style.justifySelf = 'end';
-            }
-        });
-
+        
         return (mediaCard);
     }
+
     return { getMediaCard };
 }
 

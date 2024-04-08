@@ -217,13 +217,14 @@ max-width: 350px;
     align-items: center;
 }
 
-.media-content > .media-card:nth-child(2) {
+.media-content > .media-card:nth-child(3n+2) {
     justify-self: center;
 }
 
-.media-content > .media-card:nth-child(3) {
+.media-content > .media-card:nth-child(3n+3) {
     justify-self: end;
 }
+
 
 .insert {
     background-color: #DB8876;
