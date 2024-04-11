@@ -1,20 +1,24 @@
+// Fonction pour afficher la modale du formulaire de contact
 function displayModal() {
     const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+	modal.style.display = "block";// Affiche la modale en changeant le style de display
     modal.focus();
 }
 
+// Fonction pour fermer la modale du formulaire de contact
 function closeModal() {
     const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+    modal.style.display = "none";// Cache la modale
 }
 
+// Écouteur d'événements pour fermer la modale avec la touche "Escape"
 document.addEventListener('keydown', function(event){
     if (event.key === "Escape"){
         closeModal();
     }
 });
 
+// Écouteur d'événements pour le formulaire de contact pour prévenir la soumission standard
 document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêche la soumission standard du formulaire
 

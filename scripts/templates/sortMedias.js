@@ -1,3 +1,5 @@
+
+// Fonction pour créer un modèle de tri des médias (par popularité, date, ou titre)
 function sortMediasTemplate(medias, name, displayCallback) {
     function getSortMedias() {
         const mediaSection = document.querySelector(".media-section");
@@ -16,6 +18,7 @@ function sortMediasTemplate(medias, name, displayCallback) {
         const selectedOptionContainer = document.createElement("div");
         selectedOptionContainer.classList.add('selected-container');
 
+        // Crée le bouton pour l'option actuellement sélectionnée (par défaut, "Popularité")
         const selectedOption = document.createElement("button");
         selectedOption.textContent = "Popularité"; // "Popularité" est l'option par défaut
         selectedOption.classList.add("selected-option");
@@ -107,11 +110,11 @@ function sortMediasTemplate(medias, name, displayCallback) {
         mediaSection.prepend(sortContainer);
     }
 
-    return { getSortMedias };
+    return { getSortMedias }; // Renvoie un objet contenant la fonction getSortMedias
 }
 
 
-
+// Fonction pour trier les médias selon l'option choisie et mettre à jour l'affichage
 function sortMedias(selectedOption, medias, name, displayCallback) {
     let sortedMedias;
     switch (selectedOption) {
@@ -128,7 +131,6 @@ function sortMedias(selectedOption, medias, name, displayCallback) {
             sortedMedias = medias; // Pas de tri si l'option est inconnue
     }
     console.log("Médias après le tri :", sortedMedias);
-    displayCallback(sortedMedias, name); // Assurez-vous que `displayMedia` est accessible
-
-
+        // Affiche les médias triés en utilisant la fonction de rappel fournie
+    displayCallback(sortedMedias, name); 
 }
