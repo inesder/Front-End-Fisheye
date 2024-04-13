@@ -202,11 +202,17 @@ max-width: 350px;
     justify-self: end;
     margin-top:10px;
     margin-bottom: 24px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    
 }
 
-.media-informations img.clicked {
+.like-button {
+    background: none;
+    border: none;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.media-informations button.clicked {
 
     transform: scale(1.5);
 }
@@ -434,4 +440,5 @@ cursor: pointer;
     display: block;
 
 }
+
 

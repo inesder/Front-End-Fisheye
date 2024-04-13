@@ -18,7 +18,6 @@ export function mediasTemplate(data, name, index, medias) {
     const imgLink = document.createElement('a');
     imgLink.setAttribute('href', '#');
     imgLink.setAttribute('aria-label', title);
-
     // Gestionnaire d'évènement pour ouvrir la lightbox
     imgLink.addEventListener('click', (event) => {
       event.preventDefault();
@@ -41,9 +40,10 @@ export function mediasTemplate(data, name, index, medias) {
     mediaLikes.textContent = likes;
     mediaLikes.classList.add('gallery-likes');
 
-    // Icone de like du média
-    const likeIcon = document.createElement('img');
-    likeIcon.setAttribute('src', 'assets/icons/heart-solid.svg');
+    const likeButton = document.createElement('button');
+    likeButton.setAttribute('aria-label', `Like ${title}`);
+    likeButton.classList.add('like-button');
+    likeButton.innerHTML = `<img src='assets/icons/heart-solid.svg' alt='Icône de cœur'>`;
     // Met à jour le total des likes affiché dans l'insert
     function updateTotalLikes(add) {
       const totalLikesElement = document.getElementById('totalLikesElement');
@@ -54,7 +54,7 @@ export function mediasTemplate(data, name, index, medias) {
       }
     }
     // Gestion du clic sur l'icône de like, mise à jour des likes
-    likeIcon.addEventListener('click', () => {
+    likeButton.addEventListener('click', () => {
       // Inverse l'état de "like"
       data.isLiked = !data.isLiked;
 
@@ -70,11 +70,11 @@ export function mediasTemplate(data, name, index, medias) {
       // Met à jour  le texte des likes
       mediaLikes.textContent = data.likes;
       // Applique l'effet de grossissement
-      likeIcon.classList.add('clicked');
+      likeButton.classList.add('clicked');
 
       // Supprime l'effet après 200ms
       setTimeout(() => {
-        likeIcon.classList.remove('clicked');
+        likeButton.classList.remove('clicked');
       }, 200);
     });
 
@@ -83,7 +83,7 @@ export function mediasTemplate(data, name, index, medias) {
     mediaInformations.classList.add('media-informations');
     mediaInformations.appendChild(mediaTitle);
     mediaInformations.appendChild(mediaLikes);
-    mediaInformations.appendChild(likeIcon);
+    mediaInformations.appendChild(likeButton);
 
     mediaCard.appendChild(mediaInformations);
 

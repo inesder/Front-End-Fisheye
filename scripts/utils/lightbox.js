@@ -50,6 +50,7 @@ export function displayLightbox(index, medias, photographerName) {
   // Crée l'élément média à afficher dans la lightbox
   const media = MediaFactory.create(mediaData, photographerName);
   const mediaElement = media.render();
+  mediaElement.setAttribute("tabindex","0")
   // console.log(mediaElement);
   contentContainer.appendChild(mediaElement);
 

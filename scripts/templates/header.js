@@ -14,20 +14,24 @@ export function headerTemplate(data) {
     const imgElement = document.createElement('img');
     imgElement.setAttribute('src', picture);
     imgElement.setAttribute('alt', name);
+    imgElement.setAttribute('tabindex', "5");
 
     // Nom du photographe
     const nameElement = document.createElement('h1');
     nameElement.textContent = name;
+    nameElement.setAttribute("tabindex", "2")
 
     // Localisation du photographe
     const locationElement = document.createElement('p');
     locationElement.textContent = `${city}, ${country}`;
     locationElement.classList.add('location');
+    locationElement.setAttribute("tabindex", "3");
 
     // Slogan du photographe
     const taglineElement = document.createElement('p');
     taglineElement.textContent = tagline;
     taglineElement.classList.add('tagline');
+    taglineElement.setAttribute("tabindex","4")
 
     // Conteneur pour les informations du profil
     const cardContent = document.createElement('div');

@@ -52,6 +52,7 @@ export function photographerTemplate(data) {
     cardContent.appendChild(taglineElement);
     cardContent.appendChild(priceElement);
     cardContent.classList.add('card-content');
+    cardContent.setAttribute('tabindex', '0');
 
     article.appendChild(cardHeaderLink);
     article.appendChild(cardContent);
