@@ -4,15 +4,15 @@ import sortMediasTemplate from '../templates/sortMedias.js'; // templates HTML p
 import insertTemplate from '../templates/insert.js';
 import headerTemplate from '../templates/header.js';
 
-// Fonction asynchrone pour afficher les données du photographe dans l'en-tête
-async function displayData(photographer) {
+// Fonction  pour afficher les données du photographe dans l'en-tête
+function displayData(photographer) {
   // Crée modèle pour l'en-tête du photographe
   const photographerModel = headerTemplate(photographer);
   photographerModel.getUserHeader(); // Affiche l'en-tête du photographe sur la page
 }
 
-// Fonction asynchrone pour afficher les médias d'un photographe
-async function displayMedia(medias, name) {
+// Fonction pour afficher les médias d'un photographe
+function displayMedia(medias, name) {
   const mediaSection = document.querySelector('.media-content'); // Sélectionne la section des médias sur la page
   mediaSection.innerHTML = ''; // Efface le contenu actuel de la section des médias
 
@@ -27,13 +27,13 @@ async function displayMedia(medias, name) {
 }
 
 // Fonction pour afficher l'insert avec du photographe
-async function displayInsert(photographer) {
+function displayInsert(photographer) {
   const insertModel = insertTemplate(photographer);// Crée un modèle pour l'insert
   insertModel.getInsert(); // Affiche l'insert sur la page
 }
 
 // Fonction pour afficher et trier les médias du photographe
-async function displaySortMedias(medias, name, displayCallback) {
+function displaySortMedias(medias, name, displayCallback) {
   // Crée un modèle pour le tri des médias
   const sortMediasModel = sortMediasTemplate(medias, name, displayCallback);
   sortMediasModel.getSortMedias(); // Affiche les options de tri sur la page

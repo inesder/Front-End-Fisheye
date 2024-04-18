@@ -1,8 +1,8 @@
 import getPhotographers from '../api/api.js'; // Importation de la fonction pour récupérer les données des photographes
 import photographerTemplate from '../templates/photographer.js';
 
-// Fonction asynchrone pour afficher les données des photographes sur la page
-async function displayData(photographers) {
+// Fonction pour afficher les données des photographes sur la page
+function displayData(photographers) {
   const photographersSection = document.querySelector('.photographer_section');
 
   // Pour chaque photographe, crée une carte et l'ajoute à la section
