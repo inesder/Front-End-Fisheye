@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Attache un écouteur d'événements pour fermer la lightbox avec la touche "Escape"
+// Attache un écouteur d'événements pour fermer la lightbox avec la touche 'Escape'
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeLightbox();
@@ -36,7 +36,7 @@ function setupNavigation(onLeftClick, onRightClick) {
 
 // Fonction pour afficher la lightbox avec le média sélectionné
 export function displayLightbox(index, medias, photographerName) {
-  // console.log("Index:", index, "Medias Length:", medias.length, "Current Media:", medias[index]);
+  // console.log('Index:', index, 'Medias Length:', medias.length, 'Current Media:', medias[index]);
 
   const mediaData = medias[index]; // Récupère les données du média actuel
 
@@ -50,7 +50,7 @@ export function displayLightbox(index, medias, photographerName) {
   // Crée l'élément média à afficher dans la lightbox
   const media = MediaFactory.create(mediaData, photographerName);
   const mediaElement = media.render();
-  mediaElement.setAttribute("tabindex","0")
+  mediaElement.setAttribute('tabindex', '0');
   // console.log(mediaElement);
   contentContainer.appendChild(mediaElement);
 

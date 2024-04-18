@@ -8,28 +8,26 @@ export function insertTemplate(data) {
 
     const insertElement = document.createElement('div');
     insertElement.classList.add('insert');
-    
 
     // Total de likes du photographe
     const likesElement = document.createElement('p');
     likesElement.id = 'totalLikesElement';
     likesElement.textContent = `${totalLikes}`;
-    likesElement.setAttribute("tabindex","0");
+    likesElement.setAttribute('tabindex', '0');
     insertElement.appendChild(likesElement);
-    
 
     // Icône coeur
     const likeIcon = document.createElement('img');
     likeIcon.setAttribute('src', 'assets/icons/heart-solid-black.svg');
     likeIcon.setAttribute('alt', 'likes');
-    likeIcon.setAttribute('tabindex',"0");
+    likeIcon.setAttribute('tabindex', '0');
     insertElement.appendChild(likeIcon);
 
     // Tarif journalier
     const priceElement = document.createElement('p');
     priceElement.textContent = `${price}€/jour`;
     priceElement.classList.add('insert-price');
-    priceElement.setAttribute("tabindex","0");
+    priceElement.setAttribute('tabindex', '0');
     insertElement.appendChild(priceElement);
 
     mainElement.appendChild(insertElement);

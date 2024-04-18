@@ -43,7 +43,7 @@ export function mediasTemplate(data, name, index, medias) {
     const likeButton = document.createElement('button');
     likeButton.setAttribute('aria-label', `Like ${title}`);
     likeButton.classList.add('like-button');
-    likeButton.innerHTML = `<img src='assets/icons/heart-solid.svg' alt='Icône de cœur'>`;
+    likeButton.innerHTML = '<img src="assets/icons/heart-solid.svg" alt="Icône de cœur">';
     // Met à jour le total des likes affiché dans l'insert
     function updateTotalLikes(add) {
       const totalLikesElement = document.getElementById('totalLikesElement');
