@@ -21,7 +21,8 @@ function displayPhotographers(photographers) {
 async function init() {
   // Appelle getPhotographers pour récupérer les données des photographes
   const { photographers } = await getPhotographers();
-  displayPhotographers(photographers); // Appelle displayPhotographers pour afficher les photographes sur la page
+  // Appelle displayPhotographers pour afficher les photographes sur la page
+  displayPhotographers(photographers);
 }
 
 init(); // Exécute la fonction init lors du chargement du fichier
