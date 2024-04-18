@@ -1,5 +1,5 @@
 // Fonction pour trier les médias selon l'option choisie et mettre à jour l'affichage
-function sortMedias(selectedOption, medias, name, displayCallback) {
+function sortMedias(selectedOption, medias, name, renderSortedMedia) {
   let sortedMedias;
   switch (selectedOption) {
     case 'Popularité':
@@ -16,11 +16,11 @@ function sortMedias(selectedOption, medias, name, displayCallback) {
   }
   // console.log('Médias après le tri :', sortedMedias);
   // Affiche les médias triés en utilisant la fonction de rappel fournie
-  displayCallback(sortedMedias, name);
+  renderSortedMedia(sortedMedias, name);
 }
 
 // Fonction pour créer un modèle de tri des médias (par popularité, date, ou titre)
-export function sortMediasTemplate(medias, name, displayCallback) {
+export function sortMediasTemplate(medias, name, renderSortedMedia) {
   function getSortMedias() {
     const mediaSection = document.querySelector('.media-section');
 
@@ -82,7 +82,7 @@ export function sortMediasTemplate(medias, name, displayCallback) {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           selectedOption.textContent = option; // Mise à jour de l'option visible
-          sortMedias(option, medias, name, displayCallback);
+          sortMedias(option, medias, name, renderSortedMedia);
           dropdownContent.classList.remove('show'); // Ferme le menu après sélection
           selectedOption.setAttribute('aria-expanded', 'false');
           dropdownContent.setAttribute('aria-activedescendant', listItem.id); // Met à jour l'activedescendant

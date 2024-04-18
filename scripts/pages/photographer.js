@@ -33,9 +33,9 @@ function displayInsert(photographer) {
 }
 
 // Fonction pour afficher et trier les médias du photographe
-function displaySortMedias(medias, name, displayCallback) {
+function displaySortMedias(medias, name, renderSortedMedia) {
   // Crée un modèle pour le tri des médias
-  const sortMediasModel = sortMediasTemplate(medias, name, displayCallback);
+  const sortMediasModel = sortMediasTemplate(medias, name, renderSortedMedia);
   sortMediasModel.getSortMedias(); // Affiche les options de tri sur la page
 }
 
