@@ -5,7 +5,7 @@ import insertTemplate from '../templates/insert.js';
 import headerTemplate from '../templates/header.js';
 
 // Fonction  pour afficher les données du photographe dans l'en-tête
-function displayData(photographer) {
+function displayPhotographers(photographer) {
   // Crée modèle pour l'en-tête du photographe
   const photographerModel = headerTemplate(photographer);
   photographerModel.getUserHeader(); // Affiche l'en-tête du photographe sur la page
@@ -51,7 +51,7 @@ async function init() {
 
   // Si le photographe est trouvé, affiche ses données et médias
   if (photographer) {
-    displayData(photographer);
+    displayPhotographers(photographer);
     // Filtrer et trier les médias du photographe par popularité
     const medias = data.media
       .filter((m) => m.photographerId === photographerId)
